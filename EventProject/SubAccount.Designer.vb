@@ -37,7 +37,6 @@ Partial Class SubAccount
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.txtSubRole = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SuspendLayout()
         '
@@ -45,7 +44,7 @@ Partial Class SubAccount
         '
         Me.timedate.AutoSize = True
         Me.timedate.Font = New System.Drawing.Font("Ubuntu", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.timedate.Location = New System.Drawing.Point(18, 49)
+        Me.timedate.Location = New System.Drawing.Point(18, 24)
         Me.timedate.Name = "timedate"
         Me.timedate.Size = New System.Drawing.Size(150, 25)
         Me.timedate.TabIndex = 22
@@ -241,17 +240,6 @@ Partial Class SubAccount
         Me.Label4.TabIndex = 83
         Me.Label4.Text = "Account Information"
         '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Ubuntu", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.Black
-        Me.Label7.Location = New System.Drawing.Point(18, 24)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(150, 25)
-        Me.Label7.TabIndex = 84
-        Me.Label7.Text = "                       "
-        '
         'txtSubRole
         '
         Me.txtSubRole.AutoRoundedCorners = True
@@ -280,7 +268,6 @@ Partial Class SubAccount
         Me.ClientSize = New System.Drawing.Size(1011, 800)
         Me.ControlBox = False
         Me.Controls.Add(Me.txtSubRole)
-        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnShowPwd)
@@ -316,6 +303,5 @@ Partial Class SubAccount
     Friend WithEvents Label3 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents Label7 As Label
     Friend WithEvents txtSubRole As Guna.UI2.WinForms.Guna2TextBox
 End Class

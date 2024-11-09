@@ -21,14 +21,16 @@ Public Class SubAccount
     End Sub
 
     Private Sub SubAccount_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Timer1.Enabled = True
+
         txtUname.Enabled = False
         txtFname.Enabled = False
         txtPwd.Enabled = False
         txtSubRole.Enabled = False
 
-        txtUname.Text = "2"
+        txtUname.Text = "admin2"
         txtFname.Text = "Sub Admin"
-        txtPwd.Text = "*"
+        txtPwd.Text = "******"
         txtSubRole.Text = "Sub Admin"
     End Sub
 
