@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4EE9B808-FFDE-45DC-ACF0-8E19F574D455}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>EventProject.My.MyApplication</StartupObject>
+    <RootNamespace>EventProject</RootNamespace>
+    <AssemblyName>EventProject</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>EventProject.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>EventProject.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagingToolkit.QRCode, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MessagingToolkit.QRCode.1.3.0\lib\MessagingToolkit.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=9.0.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector NET 9.0\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="WebcamCapturer.Controls.WinForms, Version=1.1.1.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebcamCapturer.Controls.WinForms.1.1.1.2\lib\net472\WebcamCapturer.Controls.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="WebcamCapturer.Core, Version=1.1.1.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebcamCapturer.Core.1.1.1.2\lib\net472\WebcamCapturer.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddAccountForm.Designer.vb">
+      <DependentUpon>AddAccountForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddAccountForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAccForm.Designer.vb">
+      <DependentUpon>AdminAccForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAccForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEventsForm.Designer.vb">
+      <DependentUpon>AddEventsForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddEventsForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AttendanceForm.Designer.vb">
+      <DependentUpon>AttendanceForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AttendanceForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditAccountForm.Designer.vb">
+      <DependentUpon>EditAccountForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditAccountForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmailForm.Designer.vb">
+      <DependentUpon>EmailForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EmailForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventsForm.Designer.vb">
+      <DependentUpon>EventsForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EventsForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GenerateQR.Designer.vb">
+      <DependentUpon>GenerateQR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GenerateQR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeadReports.Designer.vb">
+      <DependentUpon>HeadReports.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HeadReports.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeForm.Designer.vb">
+      <DependentUpon>HomeForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HomeForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDashboard.Designer.vb">
+      <DependentUpon>AdminDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module1.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AddAccountForm.resx">
+      <DependentUpon>AddAccountForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminAccForm.resx">
+      <DependentUpon>AdminAccForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEventsForm.resx">
+      <DependentUpon>AddEventsForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AttendanceForm.resx">
+      <DependentUpon>AttendanceForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditAccountForm.resx">
+      <DependentUpon>EditAccountForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmailForm.resx">
+      <DependentUpon>EmailForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventsForm.resx">
+      <DependentUpon>EventsForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GenerateQR.resx">
+      <DependentUpon>GenerateQR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeadReports.resx">
+      <DependentUpon>HeadReports.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeForm.resx">
+      <DependentUpon>HomeForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboard.resx">
+      <DependentUpon>AdminDashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons_attendance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-student-registration-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-events-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-select-users-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-report-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuicon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconmenuu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\totalattendance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upcoming.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\totalqr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\429826810_776452404362496_5839685215586209088_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-password-208.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoverhome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoveratt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoverstud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoverevent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoveracc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoverreport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoverout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\studentinfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stud act.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\all act.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\event name.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>
