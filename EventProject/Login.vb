@@ -10,11 +10,16 @@ Public Class Login
     Dim da As MySqlDataAdapter
     Dim username As String
     Dim password As String
+
+    Public LoggedInUserFullName As String
+
+
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Region = System.Drawing.Region.FromHrgn(roundcorner(0, 0, Width, Height, 20, 20))
         AcceptButton = btnSignIn
         Timer1.Enabled = True
     End Sub
+
     Public Sub ResetFields()
         txtUsername.Clear()
         txtPassword.Clear()
@@ -37,10 +42,19 @@ Public Class Login
             If reader.Read() Then
                 Dim fullName As String = reader("FullName").ToString()
                 Dim role As String = reader("Role").ToString()
+
                 Dim home As New HomeForm(fullName, role)
                 home.Show()
                 Me.Hide()
-                home.childform(New AdminDashboard())
+
+                ' Check user role and load the corresponding dashboard
+                If role.ToLower() = "sub admin" Then
+                    home.childform(New SubDashboard()) ' Load SubDashboard for Sub Admin
+                ElseIf role.ToLower() = "admin" Then
+                    home.childform(New AdminDashboard()) ' Load AdminDashboard for Admin
+                Else
+                    MessageBox.Show("Unknown role: " & role, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
             ElseIf username = "" Or password = "" Then
                 MessageBox.Show("Please fill in the login details.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
@@ -52,6 +66,7 @@ Public Class Login
             conn.Close()
         End Try
     End Sub
+
 
     Private Sub btnShow_CheckedChanged(sender As Object, e As EventArgs) Handles btnShow.CheckedChanged
         If btnShow.Checked Then

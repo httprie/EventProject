@@ -127,7 +127,7 @@ Partial Class AddEventsForm
         Me.dtpEventDate.Name = "dtpEventDate"
         Me.dtpEventDate.Size = New System.Drawing.Size(376, 40)
         Me.dtpEventDate.TabIndex = 29
-        Me.dtpEventDate.Value = New Date(2024, 10, 23, 11, 44, 8, 984)
+        Me.dtpEventDate.Value = New Date(2024, 11, 9, 0, 0, 0, 0)
         '
         'txtDepartment
         '

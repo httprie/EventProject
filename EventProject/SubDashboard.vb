@@ -1,6 +1,6 @@
 ﻿Imports System.Runtime.InteropServices
 Imports MySql.Data.MySqlClient
-Public Class AdminDashboard
+Public Class SubDashboard
     Inherits Form
     <DllImport("Gdi32.dll", EntryPoint:="CreateRoundRectRgn")> Private Shared Function roundcorner(ByVal leftcorner As Integer, ByVal topcorner As Integer, ByVal rightcorner As Integer,
                                         ByVal bottomcorner As Integer, ByVal widthellipse As Integer, ByVal heightellipse As Integer) As IntPtr
@@ -10,7 +10,7 @@ Public Class AdminDashboard
     Dim cmd As New MySqlCommand
     Dim da As New MySqlDataAdapter
     Dim dt As New DataTable
-    Private Sub AdminDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub SubDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Timer1.Enabled = True
 
         Region = System.Drawing.Region.FromHrgn(roundcorner(0, 0, Width, Height, 20, 20))
@@ -21,18 +21,15 @@ Public Class AdminDashboard
         pnlrecentevent.Region = System.Drawing.Region.FromHrgn(roundcorner(0, 0, pnlrecentevent.Width, pnlrecentevent.Height, 40, 40))
         pnlrecentatt.Region = System.Drawing.Region.FromHrgn(roundcorner(0, 0, pnlrecentatt.Width, pnlrecentatt.Height, 40, 40))
 
-        RecentAttendees.Rows.Add("2023-11111", "Jeonghan Yoon", "BSME", "1C", "59", "Complete")
-        RecentAttendees.Rows.Add("2023-19082", "Ariane Sudaria", "BSIT", "3B", "59", "Complete")
-        RecentAttendees.Rows.Add("2023-08975", "Riezseht Basilio", "BSIT", "2A", "59", "Complete")
-        RecentAttendees.Rows.Add("2023-12093", "Jeon Jungkook", "BSIT", "1B", "59", "Complete")
-        RecentAttendees.Rows.Add("2023-02361", "Park Jimin", "BSME", "3A", "59", "Complete")
-        RecentAttendees.Rows.Add("2023-13782", "Kim Seokjin", "ACT", "1A", "59", "Complete")
-        RecentAttendees.Rows.Add("2023-19483", "Kim Taehyung", "ACT", "2C", "59", "Complete")
-        RecentAttendees.Rows.Add("2023-12473", "Kim Namjoon", "BSIT", "1D", "59", "Complete")
-        RecentAttendees.Rows.Add("2023-14672", "Lee Jihoon", "BSME", "4A", "59", "Complete")
+        RecentAttendees.Rows.Add("2023-11111", "Jeon Jungkook", "BSIT", "1B", "60", "Mass", "2024-11-09 01:00:00", "2024-11-09 01:30:00", "Complete")
+        RecentAttendees.Rows.Add("2023-11112", "Park Jimin", "BSME", "3A", "60", "Mass", "2024-11-09 01:00:00", "2024-11-09 01:30:00", "Complete")
+        RecentAttendees.Rows.Add("2023-11115", "Kim Namjoon", "BSIT", "1D", "60", "Mass", "2024-11-09 01:00:00", "2024-11-09 01:30:00", "Complete")
+        RecentAttendees.Rows.Add("2023-11113", "Kim Seokjin", "ACT", "1A", "61", "The Feast", "2024-11-09 01:00:00", "2024-11-09 01:30:00", "Complete")
+        RecentAttendees.Rows.Add("2023-11114", "Kim Taehyung", "ACT", "2C", "61", "The Feast", "2024-11-09 01:00:00", "2024-11-09 01:30:00", "Complete")
+        RecentAttendees.Rows.Add("2023-11116", "Lee Jihoon", "BSME", "4A", "61", "The Feast", "2024-11-09 01:00:00", "2024-11-09 01:30:00", "Complete")
 
-        UpcomingEvents.Rows.Add("60", "Mass")
-        UpcomingEvents.Rows.Add("61", "The Feast")
+
+        UpcomingEvents.Rows.Add("62", "Mass")
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -40,5 +37,4 @@ Public Class AdminDashboard
         timer = Date.Now.ToString()
         timedate.Text = timer
     End Sub
-
 End Class

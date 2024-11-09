@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class EventForm
+Partial Class EventsForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -41,7 +41,7 @@ Partial Class EventForm
         Me.delete = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.timedate = New System.Windows.Forms.Label()
-        Me.SearchDateTime = New Guna.UI2.WinForms.Guna2DateTimePicker()
+        Me.dtpSearchDate = New Guna.UI2.WinForms.Guna2DateTimePicker()
         CType(Me.DataGridViewEvents, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -233,38 +233,38 @@ Partial Class EventForm
         Me.timedate.TabIndex = 16
         Me.timedate.Text = "                       "
         '
-        'SearchDateTime
+        'dtpSearchDate
         '
-        Me.SearchDateTime.AutoRoundedCorners = True
-        Me.SearchDateTime.BackColor = System.Drawing.SystemColors.Control
-        Me.SearchDateTime.BorderColor = System.Drawing.Color.White
-        Me.SearchDateTime.BorderRadius = 21
-        Me.SearchDateTime.Checked = True
-        Me.SearchDateTime.FillColor = System.Drawing.Color.White
-        Me.SearchDateTime.Font = New System.Drawing.Font("Ubuntu", 9.0!)
-        Me.SearchDateTime.ForeColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(133, Byte), Integer))
-        Me.SearchDateTime.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
-        Me.SearchDateTime.Location = New System.Drawing.Point(402, 91)
-        Me.SearchDateTime.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
-        Me.SearchDateTime.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
-        Me.SearchDateTime.Name = "SearchDateTime"
-        Me.SearchDateTime.Size = New System.Drawing.Size(262, 45)
-        Me.SearchDateTime.TabIndex = 18
-        Me.SearchDateTime.Value = New Date(2024, 11, 8, 16, 4, 40, 702)
+        Me.dtpSearchDate.AutoRoundedCorners = True
+        Me.dtpSearchDate.BackColor = System.Drawing.SystemColors.Control
+        Me.dtpSearchDate.BorderColor = System.Drawing.Color.White
+        Me.dtpSearchDate.BorderRadius = 21
+        Me.dtpSearchDate.Checked = True
+        Me.dtpSearchDate.FillColor = System.Drawing.Color.White
+        Me.dtpSearchDate.Font = New System.Drawing.Font("Ubuntu", 9.0!)
+        Me.dtpSearchDate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(133, Byte), Integer))
+        Me.dtpSearchDate.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
+        Me.dtpSearchDate.Location = New System.Drawing.Point(402, 91)
+        Me.dtpSearchDate.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.dtpSearchDate.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.dtpSearchDate.Name = "dtpSearchDate"
+        Me.dtpSearchDate.Size = New System.Drawing.Size(262, 45)
+        Me.dtpSearchDate.TabIndex = 18
+        Me.dtpSearchDate.Value = New Date(2024, 11, 8, 16, 4, 40, 702)
         '
-        'EventForm
+        'EventsForm
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.ClientSize = New System.Drawing.Size(1011, 800)
         Me.ControlBox = False
-        Me.Controls.Add(Me.SearchDateTime)
+        Me.Controls.Add(Me.dtpSearchDate)
         Me.Controls.Add(Me.timedate)
         Me.Controls.Add(Me.DataGridViewEvents)
         Me.Controls.Add(Me.btnAddEvent)
         Me.Controls.Add(Me.btnSearchEvent)
         Me.Controls.Add(Me.txtSearch)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "EventForm"
+        Me.Name = "EventsForm"
         Me.Text = "Event"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DataGridViewEvents, System.ComponentModel.ISupportInitialize).EndInit()
@@ -278,7 +278,7 @@ Partial Class EventForm
     Friend WithEvents DataGridViewEvents As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents Timer1 As Timer
     Friend WithEvents timedate As Label
-    Friend WithEvents SearchDateTime As Guna.UI2.WinForms.Guna2DateTimePicker
+    Friend WithEvents dtpSearchDate As Guna.UI2.WinForms.Guna2DateTimePicker
     Friend WithEvents eventid As DataGridViewTextBoxColumn
     Friend WithEvents eventname As DataGridViewTextBoxColumn
     Friend WithEvents venue As DataGridViewTextBoxColumn

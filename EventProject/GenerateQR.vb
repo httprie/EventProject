@@ -101,7 +101,10 @@ Public Class GenerateQR
             Dim studentID As String = StudentData.Rows(e.RowIndex).Cells("StudentID").Value.ToString()
 
             Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this student record?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-            DeleteStudent(studentID)
+
+            If result = DialogResult.Yes Then
+                DeleteStudent(studentID)
+            End If
         End If
     End Sub
 
@@ -280,17 +283,12 @@ Public Class GenerateQR
         obj.message = "Attendance QR Code" & vbCrLf &
                "Name: " & txtname.Text & vbCrLf &
                "Course: " & txtcourse.Text & vbCrLf &
-               "Year & Section: " & txtyrsec.Text & vbCrLf &
+               "Year and Section: " & txtyrsec.Text & vbCrLf &
                "Student ID: " & txtstudID.Text & vbCrLf & vbCrLf &
                "Please present this at every event you attend. Thank you!"
 
         obj.Show()
-        txtname.Clear()
-        txtcourse.Clear()
-        txtyrsec.Clear()
-        txtemail.Clear()
-        txtstudID.Clear()
-        QRCode.Hide()
+
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick

@@ -1,6 +1,5 @@
-﻿Imports System.Runtime.InteropServices
-Imports MySql.Data.MySqlClient
-
+﻿Imports MySql.Data.MySqlClient
+Imports System.Runtime.InteropServices
 Public Class AddEventsForm
     Inherits Form
     <DllImport("Gdi32.dll", EntryPoint:="CreateRoundRectRgn")> Private Shared Function roundcorner(ByVal leftcorner As Integer, ByVal topcorner As Integer, ByVal rightcorner As Integer,
@@ -8,10 +7,10 @@ Public Class AddEventsForm
     End Function
 
     Dim cmd As New MySqlCommand
-        Dim sqlQuery As String
-        Dim da As MySqlDataAdapter
+    Dim sqlQuery As String
+    Dim da As MySqlDataAdapter
 
-    Public Property ParentFormInstance As EventForm
+    Public Property ParentFormInstance As EventsForm
     Public Property IsEditMode As Boolean = False
     Public Property EventID As Integer
 
@@ -22,9 +21,21 @@ Public Class AddEventsForm
     Public Department As String
     Public StartTime As DateTime
     Public EndTime As DateTime
+    Public Created_By As String
 
+    Private loggedInUser As String
+
+    ' Constructor to accept logged-in user's full name
+    Public Sub New(userFullName As String)
+        InitializeComponent()
+        loggedInUser = userFullName
+    End Sub
     Private Sub AddNewEventsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Region = System.Drawing.Region.FromHrgn(roundcorner(0, 0, Width, Height, 20, 20))
+        dtpEventDate.Value = DateTime.Now.Date
+        dtpStartTime.Value = DateTime.Now
+        dtpEndTime.Value = DateTime.Now
+
 
         If IsEditMode Then
             Label7.Text = "Edit Event"
@@ -95,7 +106,8 @@ Public Class AddEventsForm
             Dim confirmAdd As DialogResult = MessageBox.Show("Do you want to add this event?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If confirmAdd = DialogResult.Yes Then
                 Try
-                    sqlQuery = "INSERT INTO Events (EventName, Venue, EventDate, Department, StartTime, EndTime) VALUES (@EventName, @Venue, @EventDate, @Department, @StartTime, @EndTime)"
+                    sqlQuery = "INSERT INTO Events (EventName, Venue, EventDate, Department, StartTime, EndTime, Created_By) 
+            VALUES (@EventName, @Venue, @EventDate, @Department, @StartTime, @EndTime, @Created_By)"
                     cmd = New MySqlCommand(sqlQuery, conn)
                     cmd.Parameters.AddWithValue("@EventName", eventName)
                     cmd.Parameters.AddWithValue("@Venue", venue)
@@ -103,6 +115,8 @@ Public Class AddEventsForm
                     cmd.Parameters.AddWithValue("@Department", department)
                     cmd.Parameters.AddWithValue("@StartTime", startTime.TimeOfDay)
                     cmd.Parameters.AddWithValue("@EndTime", endTime.TimeOfDay)
+                    cmd.Parameters.AddWithValue("@Created_By", loggedInUser)  ' Replace with actual username or session data
+
 
                     conn.Open()
                     Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
@@ -129,10 +143,10 @@ Public Class AddEventsForm
     End Sub
 
     Private Sub ClearTextBoxes()
-            txtEventName.Text = ""
-            txtVenue.Text = ""
-            txtDepartment.Text = ""
-        End Sub
+        txtEventName.Text = ""
+        txtVenue.Text = ""
+        txtDepartment.Text = ""
+    End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         ClearTextBoxes()

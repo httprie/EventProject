@@ -31,7 +31,6 @@ Partial Class GenerateQR
         Me.btnclear = New Guna.UI2.WinForms.Guna2Button()
         Me.txtemail = New Guna.UI2.WinForms.Guna2TextBox()
         Me.timedate = New System.Windows.Forms.Label()
-        Me.Guna2ShadowForm1 = New Guna.UI2.WinForms.Guna2ShadowForm(Me.components)
         Me.btnsendEmail = New Guna.UI2.WinForms.Guna2Button()
         Me.txtyrsec = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txtcourse = New Guna.UI2.WinForms.Guna2TextBox()
@@ -43,10 +42,8 @@ Partial Class GenerateQR
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
-        Me.Guna2Elipse2 = New Guna.UI2.WinForms.Guna2Elipse(Me.components)
         Me.Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(Me.components)
         Me.txtstudID = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.QRCode = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.StudentData = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.studno = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.eventname = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -59,10 +56,11 @@ Partial Class GenerateQR
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
-        CType(Me.QRCode, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.QRCode = New Guna.UI2.WinForms.Guna2PictureBox()
         CType(Me.StudentData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel1.SuspendLayout()
         Me.Guna2Panel2.SuspendLayout()
+        CType(Me.QRCode, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Timer1
@@ -321,19 +319,6 @@ Partial Class GenerateQR
         Me.txtstudID.Size = New System.Drawing.Size(305, 30)
         Me.txtstudID.TabIndex = 43
         '
-        'QRCode
-        '
-        Me.QRCode.BackColor = System.Drawing.Color.Transparent
-        Me.QRCode.FillColor = System.Drawing.Color.Transparent
-        Me.QRCode.ImageRotate = 0!
-        Me.QRCode.Location = New System.Drawing.Point(76, 49)
-        Me.QRCode.Name = "QRCode"
-        Me.QRCode.Size = New System.Drawing.Size(376, 302)
-        Me.QRCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.QRCode.TabIndex = 36
-        Me.QRCode.TabStop = False
-        Me.QRCode.UseTransparentBackground = True
-        '
         'StudentData
         '
         Me.StudentData.AllowUserToResizeColumns = False
@@ -493,6 +478,19 @@ Partial Class GenerateQR
         Me.Guna2Panel2.Size = New System.Drawing.Size(511, 365)
         Me.Guna2Panel2.TabIndex = 56
         '
+        'QRCode
+        '
+        Me.QRCode.BackColor = System.Drawing.Color.Transparent
+        Me.QRCode.FillColor = System.Drawing.Color.Transparent
+        Me.QRCode.ImageRotate = 0!
+        Me.QRCode.Location = New System.Drawing.Point(76, 49)
+        Me.QRCode.Name = "QRCode"
+        Me.QRCode.Size = New System.Drawing.Size(376, 302)
+        Me.QRCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.QRCode.TabIndex = 36
+        Me.QRCode.TabStop = False
+        Me.QRCode.UseTransparentBackground = True
+        '
         'GenerateQR
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -506,12 +504,12 @@ Partial Class GenerateQR
         Me.Name = "GenerateQR"
         Me.Text = "GenerateQR"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        CType(Me.QRCode, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StudentData, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel1.PerformLayout()
         Me.Guna2Panel2.ResumeLayout(False)
         Me.Guna2Panel2.PerformLayout()
+        CType(Me.QRCode, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -522,7 +520,6 @@ Partial Class GenerateQR
     Friend WithEvents btnclear As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents txtemail As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents timedate As Label
-    Friend WithEvents Guna2ShadowForm1 As Guna.UI2.WinForms.Guna2ShadowForm
     Friend WithEvents btnsendEmail As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents txtyrsec As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents txtcourse As Guna.UI2.WinForms.Guna2TextBox
@@ -534,7 +531,6 @@ Partial Class GenerateQR
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Timer2 As Timer
-    Friend WithEvents Guna2Elipse2 As Guna.UI2.WinForms.Guna2Elipse
     Friend WithEvents Guna2Elipse1 As Guna.UI2.WinForms.Guna2Elipse
     Friend WithEvents QRCode As Guna.UI2.WinForms.Guna2PictureBox
     Friend WithEvents txtstudID As Guna.UI2.WinForms.Guna2TextBox

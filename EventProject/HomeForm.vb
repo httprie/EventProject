@@ -40,7 +40,7 @@ Public Class HomeForm
         clickedButton.BorderRadius = 20
         clickedButton.Image = My.Resources.hoverevent
 
-        childform(New EventForm())
+        childform(New EventsForm(userfullName))
     End Sub
 
     Private Sub ResetButtonStyles()
@@ -106,7 +106,12 @@ Public Class HomeForm
         clickedButton.BorderRadius = 20
         clickedButton.Image = My.Resources.hoverhome
 
-        childform(New AdminDashboard())
+        If userRole.ToLower() = "sub admin" Then
+            childform(New SubDashboard()) ' This should load the SubDashboard
+        Else
+            childform(New AdminDashboard()) ' This should load the AdminDashboard
+        End If
+
     End Sub
 
     Private Sub HomeForm_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
@@ -155,7 +160,13 @@ Public Class HomeForm
         clickedButton.BorderRadius = 20
         clickedButton.Image = My.Resources.hoveracc
 
-        childform(New AdminAccForm())
+        If userRole.ToLower() = "sub admin" Then
+            childform(New SubAccount())
+        Else
+            MessageBox.Show("Loading AdminDashboard")
+            childform(New AddAccountForm())
+        End If
+
     End Sub
 
     Private Sub btnReport_Click(sender As Object, e As EventArgs) Handles btnReport.Click

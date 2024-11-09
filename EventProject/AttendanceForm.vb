@@ -41,44 +41,34 @@ Public Class AttendanceForm
     End Sub
     Private Sub LoadEventsForToday()
         Try
-            ' Get the current date in the format that matches your database (e.g., "YYYY-MM-DD")
             Dim currentDate As String = DateTime.Now.ToString("yyyy-MM-dd")
 
-            ' Query to get events for today
             sqlQuery = "SELECT eventid, eventname FROM events WHERE eventdate = @currentDate"
             cmd = New MySqlCommand(sqlQuery, conn)
             cmd.Parameters.AddWithValue("@currentDate", currentDate)
 
-            ' Open the connection
             conn.Open()
 
-            ' Execute the query and get the data
             dr = cmd.ExecuteReader()
 
-            ' Clear any previous items in the ComboBox
             cbevent.Items.Clear()
 
-            ' Create a list to hold events with ID and name
             Dim eventList As New List(Of EventData)()
 
-            ' Check if any events exist for today
             If dr.HasRows Then
                 While dr.Read()
-                    ' Add event name and ID to the list
                     eventList.Add(New EventData With {.ID = dr("eventid"), .Name = dr("eventname")})
                 End While
 
-                ' Bind the eventList to the ComboBox
                 cbevent.DataSource = eventList
-                cbevent.DisplayMember = "Name" ' Display only the event name
-                cbevent.ValueMember = "ID" ' Store the event ID internally
+                cbevent.DisplayMember = "Name"
+                cbevent.ValueMember = "ID"
             Else
                 MessageBox.Show("No events found for today.")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         Finally
-            ' Close the reader and connection
             dr.Close()
             conn.Close()
         End Try

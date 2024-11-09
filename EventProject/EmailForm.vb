@@ -14,8 +14,6 @@ Public Class EmailForm
     Public Property qrCodePath As String
 
     Private Sub EmailForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Region = System.Drawing.Region.FromHrgn(roundcorner(0, 0, Width, Height, 20, 20))
-
         lblto.Text = email
         lblsubject.Text = "Attendance QR Code"
         lblEMessage.Text = message

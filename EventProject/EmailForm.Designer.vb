@@ -138,10 +138,11 @@ Partial Class EmailForm
         'lblfilename
         '
         Me.lblfilename.AutoSize = True
+        Me.lblfilename.Font = New System.Drawing.Font("Ubuntu", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblfilename.ForeColor = System.Drawing.Color.White
-        Me.lblfilename.Location = New System.Drawing.Point(190, 167)
+        Me.lblfilename.Location = New System.Drawing.Point(235, 163)
         Me.lblfilename.Name = "lblfilename"
-        Me.lblfilename.Size = New System.Drawing.Size(69, 20)
+        Me.lblfilename.Size = New System.Drawing.Size(87, 25)
         Me.lblfilename.TabIndex = 29
         Me.lblfilename.Text = "               "
         '
