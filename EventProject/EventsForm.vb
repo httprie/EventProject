@@ -1,19 +1,10 @@
 ﻿Imports MySql.Data.MySqlClient
-
 Public Class EventsForm
     Dim sqlQuery As String
     Dim da As MySqlDataAdapter
-    Dim cmd As MySqlCommand
     Public dt As DataTable
-    Private loggedInUser As String
 
-    ' Constructor to accept logged-in user's full name
-    Public Sub New(userFullName As String)
-        InitializeComponent()
-        loggedInUser = userFullName
-    End Sub
-
-    Private Sub EventForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub EventsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Timer1.Enabled = True
         LoadEventsData()
     End Sub
@@ -27,10 +18,8 @@ Public Class EventsForm
             DataGridViewEvents.Columns.Clear()
 
             dt = New DataTable()
-            ' Update the SQL query to filter events based on the logged-in user
-            sqlQuery = "SELECT * FROM Events WHERE created_by = @createdBy"
+            sqlQuery = "SELECT * FROM Events"
             da = New MySqlDataAdapter(sqlQuery, conn)
-            da.SelectCommand.Parameters.AddWithValue("@createdBy", loggedInUser)
 
             If conn.State = ConnectionState.Closed Then
                 conn.Open()
@@ -42,7 +31,6 @@ Public Class EventsForm
 
             DataGridViewEvents.DataSource = dt
 
-            ' Set column headers
             DataGridViewEvents.Columns("eventid").HeaderText = "Event ID"
             DataGridViewEvents.Columns("eventname").HeaderText = "Name"
             DataGridViewEvents.Columns("venue").HeaderText = "Venue"
@@ -50,9 +38,7 @@ Public Class EventsForm
             DataGridViewEvents.Columns("department").HeaderText = "Department"
             DataGridViewEvents.Columns("starttime").HeaderText = "Start Time"
             DataGridViewEvents.Columns("endtime").HeaderText = "End Time"
-            DataGridViewEvents.Columns("created_by").HeaderText = "Created By"
 
-            ' Add Edit and Delete buttons
             Dim editColumn As New DataGridViewButtonColumn()
             editColumn.Name = "Edit"
             editColumn.HeaderText = "Edit"
@@ -79,7 +65,7 @@ Public Class EventsForm
     End Sub
 
     Private Sub btnAddEvent_Click(sender As Object, e As EventArgs) Handles btnAddEvent.Click
-        Dim addNewEventFormInstance As New AddEventsForm(loggedInUser) ' Pass the logged-in user full name
+        Dim addNewEventFormInstance As New AddEventsForm()
         addNewEventFormInstance.ParentFormInstance = Me
         addNewEventFormInstance.Show()
     End Sub
@@ -90,7 +76,7 @@ Public Class EventsForm
                 Dim selectedRow As DataGridViewRow = DataGridViewEvents.Rows(e.RowIndex)
 
                 If DataGridViewEvents.Columns(e.ColumnIndex).Name = "Edit" Then
-                Dim addNewEventFormInstance As New AddEventsForm(loggedInUser) With {
+                    Dim addNewEventFormInstance As New AddEventsForm() With {
                         .ParentFormInstance = Me,
                         .IsEditMode = True,
                         .EventID = Convert.ToInt32(selectedRow.Cells("eventid").Value),
@@ -142,42 +128,27 @@ Public Class EventsForm
 
     Private Sub btnSearchEvent_Click(sender As Object, e As EventArgs) Handles btnSearchEvent.Click
         Dim searchText As String = txtSearch.Text.Trim().ToLower()
-        Dim selectedDate As DateTime = dtpSearchDate.Value.Date ' Get only the date part (no time)
+        Dim selectedDate As DateTime = dtpSearchDate.Value.Date
 
-        ' Prepare the SQL query to fetch events based on the selected date
-        Try
-            ' Create the query to filter by date and search text
-            sqlQuery = "SELECT * FROM Events WHERE eventdate = @selectedDate"
+        If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+            Dim dataView As New DataView(dt)
 
-            ' If there is any text in the search box, apply additional filters
-            If Not String.IsNullOrEmpty(searchText) Then
-                sqlQuery &= " AND (eventname LIKE @searchText OR venue LIKE @searchText OR department LIKE @searchText)"
+            Dim filterString As String = String.Format("eventname LIKE '%{0}%' OR " &
+                                                       "venue LIKE '%{0}%' OR " &
+                                                       "department LIKE '%{0}%'", searchText)
+
+            If dtpSearchDate.Checked Then
+                filterString &= String.Format(" AND eventdate = #{0}#", selectedDate.ToString("yyyy-MM-dd"))
             End If
 
-            ' Connection string
+            dataView.RowFilter = filterString
+            DataGridViewEvents.DataSource = dataView
 
-            ' Open the connection and retrieve data
-            cmd = New MySqlCommand(sqlQuery, conn)
-            ' Add parameters to avoid SQL injection
-            cmd.Parameters.AddWithValue("@selectedDate", selectedDate.ToString("yyyy-MM-dd"))
-                    cmd.Parameters.AddWithValue("@searchText", "%" & searchText & "%")
-
-                    ' Create the data adapter and fill the DataTable
-                    da = New MySqlDataAdapter(cmd)
-                    dt = New DataTable()
-                    da.Fill(dt)
-
-            ' Bind the DataTable to the DataGridView
-            DataGridViewEvents.DataSource = dt
-
-            ' Check if data is available
-            If dt.Rows.Count = 0 Then
-                MessageBox.Show("No events found for the selected date.")
+            If dataView.Count = 0 Then
+                MessageBox.Show("No data found matching your search criteria.")
             End If
-
-        Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
-        End Try
+        Else
+            MessageBox.Show("No data available to search.")
+        End If
     End Sub
-
 End Class

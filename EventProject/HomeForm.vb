@@ -29,8 +29,33 @@ Public Class HomeForm
         pnlHome.Controls.Add(panel)
         panel.Show()
     End Sub
+    Private Sub menuicon_Click(sender As Object, e As EventArgs) Handles Guna2PictureBox1.Click
+        If pnlbuttons.Width > 35 Then
+            TimerReduce.Enabled = True
+        Else
+            TimerIncrease.Enabled = True
+        End If
 
-    Private Sub btnEvent_Click(sender As Object, e As EventArgs) Handles btnEvent.Click
+    End Sub
+
+    Private Sub TimerReduce_Tick(sender As Object, e As EventArgs) Handles TimerReduce.Tick
+        If pnlbuttons.Width > 110 Then
+            pnlbuttons.Width -= 50
+        Else
+            TimerReduce.Enabled = False
+        End If
+    End Sub
+
+    Private Sub TimerIncrease_Tick(sender As Object, e As EventArgs) Handles TimerIncrease.Tick
+        If pnlbuttons.Width < 377 Then
+            pnlbuttons.Width += 50
+
+        Else
+            TimerIncrease.Enabled = False
+        End If
+    End Sub
+
+    Private Sub btnEvent_Click(sender As Object, e As EventArgs)
         Dim clickedButton As Guna2Button = CType(sender, Guna2Button)
 
         ResetButtonStyles()
@@ -40,7 +65,7 @@ Public Class HomeForm
         clickedButton.BorderRadius = 20
         clickedButton.Image = My.Resources.hoverevent
 
-        childform(New EventsForm(userfullName))
+        childform(New EventsForm())
     End Sub
 
     Private Sub ResetButtonStyles()
@@ -76,7 +101,7 @@ Public Class HomeForm
     End Sub
 
 
-    Private Sub btnSignOut_Click(sender As Object, e As EventArgs) Handles btnSignOut.Click
+    Private Sub btnSignOut_Click(sender As Object, e As EventArgs)
         Dim clickedButton As Guna2Button = CType(sender, Guna2Button)
 
         ResetButtonStyles()
@@ -96,7 +121,7 @@ Public Class HomeForm
         End If
     End Sub
 
-    Private Sub btnHome_Click(sender As Object, e As EventArgs) Handles btnHome.Click
+    Private Sub btnHome_Click(sender As Object, e As EventArgs)
         Dim clickedButton As Guna2Button = CType(sender, Guna2Button)
 
         ResetButtonStyles()
@@ -106,15 +131,10 @@ Public Class HomeForm
         clickedButton.BorderRadius = 20
         clickedButton.Image = My.Resources.hoverhome
 
-        If userRole.ToLower() = "sub admin" Then
-            childform(New SubDashboard()) ' This should load the SubDashboard
-        Else
-            childform(New AdminDashboard()) ' This should load the AdminDashboard
-        End If
-
+        childform(New AdminDashboard())
     End Sub
 
-    Private Sub HomeForm_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub HomeForm_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Dim result As DialogResult
         result = MessageBox.Show("Do you really want to close the program?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If result = DialogResult.Yes Then
@@ -124,7 +144,7 @@ Public Class HomeForm
         End If
     End Sub
 
-    Private Sub btnAttendance_Click(sender As Object, e As EventArgs) Handles btnAttendance.Click
+    Private Sub btnAttendance_Click(sender As Object, e As EventArgs)
         Dim clickedButton As Guna2Button = CType(sender, Guna2Button)
 
         ResetButtonStyles()
@@ -137,7 +157,7 @@ Public Class HomeForm
         childform(New AttendanceForm())
     End Sub
 
-    Private Sub btnStudent_Click(sender As Object, e As EventArgs) Handles btnStudent.Click
+    Private Sub btnStudent_Click(sender As Object, e As EventArgs)
         Dim clickedButton As Guna2Button = CType(sender, Guna2Button)
 
         ResetButtonStyles()
@@ -150,7 +170,7 @@ Public Class HomeForm
         childform(New GenerateQR())
     End Sub
 
-    Private Sub btnAccount_Click(sender As Object, e As EventArgs) Handles btnAccount.Click
+    Private Sub btnAccount_Click(sender As Object, e As EventArgs)
         Dim clickedButton As Guna2Button = CType(sender, Guna2Button)
 
         ResetButtonStyles()
@@ -160,16 +180,10 @@ Public Class HomeForm
         clickedButton.BorderRadius = 20
         clickedButton.Image = My.Resources.hoveracc
 
-        If userRole.ToLower() = "sub admin" Then
-            childform(New SubAccount())
-        Else
-            MessageBox.Show("Loading AdminDashboard")
-            childform(New AddAccountForm())
-        End If
-
+        childform(New AdminAccForm())
     End Sub
 
-    Private Sub btnReport_Click(sender As Object, e As EventArgs) Handles btnReport.Click
+    Private Sub btnReport_Click(sender As Object, e As EventArgs)
         Dim clickedButton As Guna2Button = CType(sender, Guna2Button)
 
         ResetButtonStyles()
@@ -181,4 +195,5 @@ Public Class HomeForm
 
         childform(New HeadReports())
     End Sub
+
 End Class

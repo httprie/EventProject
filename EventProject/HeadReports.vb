@@ -121,16 +121,20 @@ WHERE
             conn.Close()
         End Try
 
+        ' Check if DataTable has columns and data
         If dt.Columns.Count > 0 Then
+            ' Display the data in DataGridView
             ReportData.DataSource = dt
             ReportData.ColumnHeadersHeight = 30
 
+            ' Set custom column headers
             ReportData.Columns(0).HeaderText = "Full Name"
             ReportData.Columns(1).HeaderText = "Event Name"
             ReportData.Columns(2).HeaderText = "Time In"
             ReportData.Columns(3).HeaderText = "Time Out"
             ReportData.Columns(4).HeaderText = "Status"
 
+            ' Optional: Adjust column widths if needed
             ReportData.AutoResizeColumns()
         Else
             MessageBox.Show("No data found for the selected student.")

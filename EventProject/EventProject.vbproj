@@ -362,5 +362,8 @@
   <ItemGroup>
     <None Include="Resources\event name.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-menu-96.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

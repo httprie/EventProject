@@ -57,7 +57,6 @@ Partial Class AdminDashboard
         Me.Guna2PictureBox2 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lblTotalAttendees = New System.Windows.Forms.Label()
-        Me.Guna2Button8 = New Guna.UI2.WinForms.Guna2Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         Me.pnlrecentevent.SuspendLayout()
@@ -80,7 +79,6 @@ Partial Class AdminDashboard
         Me.Panel1.Controls.Add(Me.pnltotalqr)
         Me.Panel1.Controls.Add(Me.pnlupcoming)
         Me.Panel1.Controls.Add(Me.pnltotalatt)
-        Me.Panel1.Controls.Add(Me.Guna2Button8)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
@@ -91,7 +89,7 @@ Partial Class AdminDashboard
         '
         Me.timedate.AutoSize = True
         Me.timedate.Font = New System.Drawing.Font("Ubuntu", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.timedate.Location = New System.Drawing.Point(75, 26)
+        Me.timedate.Location = New System.Drawing.Point(14, 30)
         Me.timedate.Name = "timedate"
         Me.timedate.Size = New System.Drawing.Size(150, 25)
         Me.timedate.TabIndex = 16
@@ -470,28 +468,6 @@ Partial Class AdminDashboard
         Me.lblTotalAttendees.TabIndex = 10
         Me.lblTotalAttendees.Text = "1,504"
         '
-        'Guna2Button8
-        '
-        Me.Guna2Button8.AutoRoundedCorners = True
-        Me.Guna2Button8.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Button8.BorderRadius = 21
-        Me.Guna2Button8.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button8.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button8.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.Guna2Button8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Guna2Button8.FillColor = System.Drawing.Color.Transparent
-        Me.Guna2Button8.Font = New System.Drawing.Font("Ubuntu", 10.0!)
-        Me.Guna2Button8.ForeColor = System.Drawing.Color.White
-        Me.Guna2Button8.Image = Global.EventProject.My.Resources.Resources.iconmenuu
-        Me.Guna2Button8.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.Guna2Button8.ImageSize = New System.Drawing.Size(45, 45)
-        Me.Guna2Button8.Location = New System.Drawing.Point(4, 6)
-        Me.Guna2Button8.Name = "Guna2Button8"
-        Me.Guna2Button8.Size = New System.Drawing.Size(65, 45)
-        Me.Guna2Button8.TabIndex = 10
-        Me.Guna2Button8.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.Guna2Button8.TextOffset = New System.Drawing.Point(33, 0)
-        '
         'Timer1
         '
         '
@@ -542,7 +518,6 @@ Partial Class AdminDashboard
     Friend WithEvents Guna2PictureBox2 As Guna.UI2.WinForms.Guna2PictureBox
     Friend WithEvents Label4 As Label
     Friend WithEvents lblTotalAttendees As Label
-    Friend WithEvents Guna2Button8 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents UpcomingEvents As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn

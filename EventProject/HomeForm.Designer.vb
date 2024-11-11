@@ -22,7 +22,14 @@ Partial Class HomeForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        Me.components = New System.ComponentModel.Container()
+        Me.pnlbuttons = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        Me.lblRole = New System.Windows.Forms.Label()
+        Me.lblUsername = New System.Windows.Forms.Label()
+        Me.pnlHome = New System.Windows.Forms.Panel()
+        Me.TimerReduce = New System.Windows.Forms.Timer(Me.components)
+        Me.TimerIncrease = New System.Windows.Forms.Timer(Me.components)
+        Me.Guna2PictureBox2 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.btnSignOut = New Guna.UI2.WinForms.Guna2Button()
         Me.btnReport = New Guna.UI2.WinForms.Guna2Button()
@@ -30,42 +37,94 @@ Partial Class HomeForm
         Me.btnEvent = New Guna.UI2.WinForms.Guna2Button()
         Me.btnStudent = New Guna.UI2.WinForms.Guna2Button()
         Me.btnAttendance = New Guna.UI2.WinForms.Guna2Button()
-        Me.lblRole = New System.Windows.Forms.Label()
-        Me.lblUsername = New System.Windows.Forms.Label()
         Me.btnHome = New Guna.UI2.WinForms.Guna2Button()
-        Me.pnlHome = New System.Windows.Forms.Panel()
-        Me.Guna2CustomGradientPanel1.SuspendLayout()
+        Me.pnlbuttons.SuspendLayout()
+        CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Guna2CustomGradientPanel1
+        'pnlbuttons
         '
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.Guna2PictureBox1)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.btnSignOut)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.btnReport)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.btnAccount)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.btnEvent)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.btnStudent)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.btnAttendance)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblRole)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblUsername)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.btnHome)
-        Me.Guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Guna2CustomGradientPanel1.FillColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(133, Byte), Integer))
-        Me.Guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(133, Byte), Integer))
-        Me.Guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.Black
-        Me.Guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(133, Byte), Integer))
-        Me.Guna2CustomGradientPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.Guna2CustomGradientPanel1.Name = "Guna2CustomGradientPanel1"
-        Me.Guna2CustomGradientPanel1.Size = New System.Drawing.Size(377, 800)
-        Me.Guna2CustomGradientPanel1.TabIndex = 2
+        Me.pnlbuttons.Controls.Add(Me.Guna2PictureBox2)
+        Me.pnlbuttons.Controls.Add(Me.Guna2PictureBox1)
+        Me.pnlbuttons.Controls.Add(Me.btnSignOut)
+        Me.pnlbuttons.Controls.Add(Me.btnReport)
+        Me.pnlbuttons.Controls.Add(Me.btnAccount)
+        Me.pnlbuttons.Controls.Add(Me.btnEvent)
+        Me.pnlbuttons.Controls.Add(Me.btnStudent)
+        Me.pnlbuttons.Controls.Add(Me.btnAttendance)
+        Me.pnlbuttons.Controls.Add(Me.lblRole)
+        Me.pnlbuttons.Controls.Add(Me.lblUsername)
+        Me.pnlbuttons.Controls.Add(Me.btnHome)
+        Me.pnlbuttons.Dock = System.Windows.Forms.DockStyle.Left
+        Me.pnlbuttons.FillColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(133, Byte), Integer))
+        Me.pnlbuttons.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(133, Byte), Integer))
+        Me.pnlbuttons.FillColor3 = System.Drawing.Color.Black
+        Me.pnlbuttons.FillColor4 = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(133, Byte), Integer))
+        Me.pnlbuttons.Location = New System.Drawing.Point(0, 0)
+        Me.pnlbuttons.Name = "pnlbuttons"
+        Me.pnlbuttons.Size = New System.Drawing.Size(377, 800)
+        Me.pnlbuttons.TabIndex = 2
+        '
+        'lblRole
+        '
+        Me.lblRole.AutoSize = True
+        Me.lblRole.BackColor = System.Drawing.Color.Transparent
+        Me.lblRole.Font = New System.Drawing.Font("Ubuntu", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblRole.ForeColor = System.Drawing.Color.White
+        Me.lblRole.Location = New System.Drawing.Point(89, 107)
+        Me.lblRole.Name = "lblRole"
+        Me.lblRole.Size = New System.Drawing.Size(95, 20)
+        Me.lblRole.TabIndex = 2
+        Me.lblRole.Text = "Head Admin"
+        '
+        'lblUsername
+        '
+        Me.lblUsername.AutoSize = True
+        Me.lblUsername.BackColor = System.Drawing.Color.Transparent
+        Me.lblUsername.Font = New System.Drawing.Font("Ubuntu", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUsername.ForeColor = System.Drawing.Color.White
+        Me.lblUsername.Location = New System.Drawing.Point(88, 79)
+        Me.lblUsername.Name = "lblUsername"
+        Me.lblUsername.Size = New System.Drawing.Size(148, 25)
+        Me.lblUsername.TabIndex = 1
+        Me.lblUsername.Text = "Juan Dela Cruz"
+        '
+        'pnlHome
+        '
+        Me.pnlHome.Dock = System.Windows.Forms.DockStyle.Right
+        Me.pnlHome.Location = New System.Drawing.Point(379, 0)
+        Me.pnlHome.Name = "pnlHome"
+        Me.pnlHome.Size = New System.Drawing.Size(1011, 800)
+        Me.pnlHome.TabIndex = 3
+        '
+        'TimerReduce
+        '
+        Me.TimerReduce.Interval = 1
+        '
+        'TimerIncrease
+        '
+        Me.TimerIncrease.Interval = 1
+        '
+        'Guna2PictureBox2
+        '
+        Me.Guna2PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2PictureBox2.Image = Global.EventProject.My.Resources.Resources.icons8_menu_96
+        Me.Guna2PictureBox2.ImageRotate = 0!
+        Me.Guna2PictureBox2.Location = New System.Drawing.Point(37, 22)
+        Me.Guna2PictureBox2.Name = "Guna2PictureBox2"
+        Me.Guna2PictureBox2.Size = New System.Drawing.Size(45, 35)
+        Me.Guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Guna2PictureBox2.TabIndex = 1
+        Me.Guna2PictureBox2.TabStop = False
+        Me.Guna2PictureBox2.UseTransparentBackground = True
         '
         'Guna2PictureBox1
         '
         Me.Guna2PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2PictureBox1.Image = Global.EventProject.My.Resources.Resources.icon_user
         Me.Guna2PictureBox1.ImageRotate = 0!
-        Me.Guna2PictureBox1.Location = New System.Drawing.Point(36, 34)
+        Me.Guna2PictureBox1.Location = New System.Drawing.Point(37, 79)
         Me.Guna2PictureBox1.Name = "Guna2PictureBox1"
         Me.Guna2PictureBox1.Size = New System.Drawing.Size(45, 43)
         Me.Guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -229,30 +288,6 @@ Partial Class HomeForm
         Me.btnAttendance.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnAttendance.TextOffset = New System.Drawing.Point(40, 0)
         '
-        'lblRole
-        '
-        Me.lblRole.AutoSize = True
-        Me.lblRole.BackColor = System.Drawing.Color.Transparent
-        Me.lblRole.Font = New System.Drawing.Font("Ubuntu", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRole.ForeColor = System.Drawing.Color.White
-        Me.lblRole.Location = New System.Drawing.Point(88, 62)
-        Me.lblRole.Name = "lblRole"
-        Me.lblRole.Size = New System.Drawing.Size(95, 20)
-        Me.lblRole.TabIndex = 2
-        Me.lblRole.Text = "Head Admin"
-        '
-        'lblUsername
-        '
-        Me.lblUsername.AutoSize = True
-        Me.lblUsername.BackColor = System.Drawing.Color.Transparent
-        Me.lblUsername.Font = New System.Drawing.Font("Ubuntu", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUsername.ForeColor = System.Drawing.Color.White
-        Me.lblUsername.Location = New System.Drawing.Point(87, 34)
-        Me.lblUsername.Name = "lblUsername"
-        Me.lblUsername.Size = New System.Drawing.Size(148, 25)
-        Me.lblUsername.TabIndex = 1
-        Me.lblUsername.Text = "Juan Dela Cruz"
-        '
         'btnHome
         '
         Me.btnHome.AutoRoundedCorners = True
@@ -279,34 +314,27 @@ Partial Class HomeForm
         Me.btnHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnHome.TextOffset = New System.Drawing.Point(33, 0)
         '
-        'pnlHome
-        '
-        Me.pnlHome.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnlHome.Location = New System.Drawing.Point(379, 0)
-        Me.pnlHome.Name = "pnlHome"
-        Me.pnlHome.Size = New System.Drawing.Size(1011, 800)
-        Me.pnlHome.TabIndex = 3
-        '
         'HomeForm
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.ClientSize = New System.Drawing.Size(1390, 800)
         Me.ControlBox = False
         Me.Controls.Add(Me.pnlHome)
-        Me.Controls.Add(Me.Guna2CustomGradientPanel1)
+        Me.Controls.Add(Me.pnlbuttons)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "HomeForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "HomeForm"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        Me.Guna2CustomGradientPanel1.ResumeLayout(False)
-        Me.Guna2CustomGradientPanel1.PerformLayout()
+        Me.pnlbuttons.ResumeLayout(False)
+        Me.pnlbuttons.PerformLayout()
+        CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents Guna2CustomGradientPanel1 As Guna.UI2.WinForms.Guna2CustomGradientPanel
+    Friend WithEvents pnlbuttons As Guna.UI2.WinForms.Guna2CustomGradientPanel
     Friend WithEvents Guna2PictureBox1 As Guna.UI2.WinForms.Guna2PictureBox
     Friend WithEvents btnSignOut As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnReport As Guna.UI2.WinForms.Guna2Button
@@ -318,4 +346,7 @@ Partial Class HomeForm
     Friend WithEvents lblUsername As Label
     Friend WithEvents btnHome As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents pnlHome As Panel
+    Friend WithEvents Guna2PictureBox2 As Guna.UI2.WinForms.Guna2PictureBox
+    Friend WithEvents TimerReduce As Timer
+    Friend WithEvents TimerIncrease As Timer
 End Class
