@@ -23,60 +23,25 @@ Partial Class HomeForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.pnlbuttons = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
-        Me.lblRole = New System.Windows.Forms.Label()
         Me.lblUsername = New System.Windows.Forms.Label()
-        Me.pnlHome = New System.Windows.Forms.Panel()
-        Me.TimerReduce = New System.Windows.Forms.Timer(Me.components)
-        Me.TimerIncrease = New System.Windows.Forms.Timer(Me.components)
-        Me.Guna2PictureBox2 = New Guna.UI2.WinForms.Guna2PictureBox()
-        Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
-        Me.btnSignOut = New Guna.UI2.WinForms.Guna2Button()
+        Me.lblRole = New System.Windows.Forms.Label()
+        Me.btnAttendance = New Guna.UI2.WinForms.Guna2Button()
         Me.btnReport = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnSignOut = New Guna.UI2.WinForms.Guna2Button()
+        Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
+        Me.menuicon = New Guna.UI2.WinForms.Guna2PictureBox()
+        Me.pnlbuttons = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         Me.btnAccount = New Guna.UI2.WinForms.Guna2Button()
         Me.btnEvent = New Guna.UI2.WinForms.Guna2Button()
         Me.btnStudent = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnAttendance = New Guna.UI2.WinForms.Guna2Button()
         Me.btnHome = New Guna.UI2.WinForms.Guna2Button()
-        Me.pnlbuttons.SuspendLayout()
-        CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TimerReduce = New System.Windows.Forms.Timer(Me.components)
+        Me.pnlHome = New System.Windows.Forms.Panel()
+        Me.TimerIncrease = New System.Windows.Forms.Timer(Me.components)
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.menuicon, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlbuttons.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'pnlbuttons
-        '
-        Me.pnlbuttons.Controls.Add(Me.Guna2PictureBox2)
-        Me.pnlbuttons.Controls.Add(Me.Guna2PictureBox1)
-        Me.pnlbuttons.Controls.Add(Me.btnSignOut)
-        Me.pnlbuttons.Controls.Add(Me.btnReport)
-        Me.pnlbuttons.Controls.Add(Me.btnAccount)
-        Me.pnlbuttons.Controls.Add(Me.btnEvent)
-        Me.pnlbuttons.Controls.Add(Me.btnStudent)
-        Me.pnlbuttons.Controls.Add(Me.btnAttendance)
-        Me.pnlbuttons.Controls.Add(Me.lblRole)
-        Me.pnlbuttons.Controls.Add(Me.lblUsername)
-        Me.pnlbuttons.Controls.Add(Me.btnHome)
-        Me.pnlbuttons.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pnlbuttons.FillColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(133, Byte), Integer))
-        Me.pnlbuttons.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(133, Byte), Integer))
-        Me.pnlbuttons.FillColor3 = System.Drawing.Color.Black
-        Me.pnlbuttons.FillColor4 = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(133, Byte), Integer))
-        Me.pnlbuttons.Location = New System.Drawing.Point(0, 0)
-        Me.pnlbuttons.Name = "pnlbuttons"
-        Me.pnlbuttons.Size = New System.Drawing.Size(377, 800)
-        Me.pnlbuttons.TabIndex = 2
-        '
-        'lblRole
-        '
-        Me.lblRole.AutoSize = True
-        Me.lblRole.BackColor = System.Drawing.Color.Transparent
-        Me.lblRole.Font = New System.Drawing.Font("Ubuntu", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRole.ForeColor = System.Drawing.Color.White
-        Me.lblRole.Location = New System.Drawing.Point(89, 107)
-        Me.lblRole.Name = "lblRole"
-        Me.lblRole.Size = New System.Drawing.Size(95, 20)
-        Me.lblRole.TabIndex = 2
-        Me.lblRole.Text = "Head Admin"
         '
         'lblUsername
         '
@@ -90,47 +55,69 @@ Partial Class HomeForm
         Me.lblUsername.TabIndex = 1
         Me.lblUsername.Text = "Juan Dela Cruz"
         '
-        'pnlHome
+        'lblRole
         '
-        Me.pnlHome.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnlHome.Location = New System.Drawing.Point(379, 0)
-        Me.pnlHome.Name = "pnlHome"
-        Me.pnlHome.Size = New System.Drawing.Size(1011, 800)
-        Me.pnlHome.TabIndex = 3
+        Me.lblRole.AutoSize = True
+        Me.lblRole.BackColor = System.Drawing.Color.Transparent
+        Me.lblRole.Font = New System.Drawing.Font("Ubuntu", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblRole.ForeColor = System.Drawing.Color.White
+        Me.lblRole.Location = New System.Drawing.Point(89, 107)
+        Me.lblRole.Name = "lblRole"
+        Me.lblRole.Size = New System.Drawing.Size(95, 20)
+        Me.lblRole.TabIndex = 2
+        Me.lblRole.Text = "Head Admin"
         '
-        'TimerReduce
+        'btnAttendance
         '
-        Me.TimerReduce.Interval = 1
+        Me.btnAttendance.AutoRoundedCorners = True
+        Me.btnAttendance.BackColor = System.Drawing.Color.Transparent
+        Me.btnAttendance.BorderRadius = 21
+        Me.btnAttendance.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnAttendance.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnAttendance.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnAttendance.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnAttendance.FillColor = System.Drawing.Color.Transparent
+        Me.btnAttendance.Font = New System.Drawing.Font("Ubuntu", 10.0!)
+        Me.btnAttendance.ForeColor = System.Drawing.Color.White
+        Me.btnAttendance.HoverState.FillColor = System.Drawing.SystemColors.Control
+        Me.btnAttendance.HoverState.ForeColor = System.Drawing.Color.Black
+        Me.btnAttendance.HoverState.Image = Global.EventProject.My.Resources.Resources.hoveratt
+        Me.btnAttendance.Image = Global.EventProject.My.Resources.Resources.icons_attendance
+        Me.btnAttendance.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnAttendance.ImageSize = New System.Drawing.Size(40, 40)
+        Me.btnAttendance.Location = New System.Drawing.Point(26, 236)
+        Me.btnAttendance.Name = "btnAttendance"
+        Me.btnAttendance.Size = New System.Drawing.Size(281, 45)
+        Me.btnAttendance.TabIndex = 3
+        Me.btnAttendance.Text = "ATTENDANCE"
+        Me.btnAttendance.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnAttendance.TextOffset = New System.Drawing.Point(40, 0)
         '
-        'TimerIncrease
+        'btnReport
         '
-        Me.TimerIncrease.Interval = 1
-        '
-        'Guna2PictureBox2
-        '
-        Me.Guna2PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2PictureBox2.Image = Global.EventProject.My.Resources.Resources.icons8_menu_96
-        Me.Guna2PictureBox2.ImageRotate = 0!
-        Me.Guna2PictureBox2.Location = New System.Drawing.Point(37, 22)
-        Me.Guna2PictureBox2.Name = "Guna2PictureBox2"
-        Me.Guna2PictureBox2.Size = New System.Drawing.Size(45, 35)
-        Me.Guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Guna2PictureBox2.TabIndex = 1
-        Me.Guna2PictureBox2.TabStop = False
-        Me.Guna2PictureBox2.UseTransparentBackground = True
-        '
-        'Guna2PictureBox1
-        '
-        Me.Guna2PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2PictureBox1.Image = Global.EventProject.My.Resources.Resources.icon_user
-        Me.Guna2PictureBox1.ImageRotate = 0!
-        Me.Guna2PictureBox1.Location = New System.Drawing.Point(37, 79)
-        Me.Guna2PictureBox1.Name = "Guna2PictureBox1"
-        Me.Guna2PictureBox1.Size = New System.Drawing.Size(45, 43)
-        Me.Guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Guna2PictureBox1.TabIndex = 9
-        Me.Guna2PictureBox1.TabStop = False
-        Me.Guna2PictureBox1.UseTransparentBackground = True
+        Me.btnReport.AutoRoundedCorners = True
+        Me.btnReport.BackColor = System.Drawing.Color.Transparent
+        Me.btnReport.BorderRadius = 21
+        Me.btnReport.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnReport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnReport.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnReport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnReport.FillColor = System.Drawing.Color.Transparent
+        Me.btnReport.Font = New System.Drawing.Font("Ubuntu", 10.0!)
+        Me.btnReport.ForeColor = System.Drawing.Color.White
+        Me.btnReport.HoverState.FillColor = System.Drawing.SystemColors.Control
+        Me.btnReport.HoverState.ForeColor = System.Drawing.Color.Black
+        Me.btnReport.HoverState.Image = Global.EventProject.My.Resources.Resources.hoverreport
+        Me.btnReport.Image = Global.EventProject.My.Resources.Resources.icons8_report_96
+        Me.btnReport.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnReport.ImageSize = New System.Drawing.Size(40, 40)
+        Me.btnReport.Location = New System.Drawing.Point(26, 532)
+        Me.btnReport.Name = "btnReport"
+        Me.btnReport.Size = New System.Drawing.Size(281, 45)
+        Me.btnReport.TabIndex = 7
+        Me.btnReport.Text = "REPORT"
+        Me.btnReport.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnReport.TextOffset = New System.Drawing.Point(40, 0)
         '
         'btnSignOut
         '
@@ -158,31 +145,54 @@ Partial Class HomeForm
         Me.btnSignOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnSignOut.TextOffset = New System.Drawing.Point(40, 0)
         '
-        'btnReport
+        'Guna2PictureBox1
         '
-        Me.btnReport.AutoRoundedCorners = True
-        Me.btnReport.BackColor = System.Drawing.Color.Transparent
-        Me.btnReport.BorderRadius = 21
-        Me.btnReport.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnReport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnReport.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnReport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnReport.FillColor = System.Drawing.Color.Transparent
-        Me.btnReport.Font = New System.Drawing.Font("Ubuntu", 10.0!)
-        Me.btnReport.ForeColor = System.Drawing.Color.White
-        Me.btnReport.HoverState.FillColor = System.Drawing.SystemColors.Control
-        Me.btnReport.HoverState.ForeColor = System.Drawing.Color.Black
-        Me.btnReport.HoverState.Image = Global.EventProject.My.Resources.Resources.hoverreport
-        Me.btnReport.Image = Global.EventProject.My.Resources.Resources.icons8_report_96
-        Me.btnReport.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnReport.ImageSize = New System.Drawing.Size(40, 40)
-        Me.btnReport.Location = New System.Drawing.Point(26, 532)
-        Me.btnReport.Name = "btnReport"
-        Me.btnReport.Size = New System.Drawing.Size(281, 45)
-        Me.btnReport.TabIndex = 7
-        Me.btnReport.Text = "REPORT"
-        Me.btnReport.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnReport.TextOffset = New System.Drawing.Point(40, 0)
+        Me.Guna2PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2PictureBox1.Image = Global.EventProject.My.Resources.Resources.icon_user
+        Me.Guna2PictureBox1.ImageRotate = 0!
+        Me.Guna2PictureBox1.Location = New System.Drawing.Point(37, 79)
+        Me.Guna2PictureBox1.Name = "Guna2PictureBox1"
+        Me.Guna2PictureBox1.Size = New System.Drawing.Size(45, 43)
+        Me.Guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Guna2PictureBox1.TabIndex = 9
+        Me.Guna2PictureBox1.TabStop = False
+        Me.Guna2PictureBox1.UseTransparentBackground = True
+        '
+        'menuicon
+        '
+        Me.menuicon.BackColor = System.Drawing.Color.Transparent
+        Me.menuicon.Image = Global.EventProject.My.Resources.Resources.icons8_menu_96
+        Me.menuicon.ImageRotate = 0!
+        Me.menuicon.Location = New System.Drawing.Point(37, 22)
+        Me.menuicon.Name = "menuicon"
+        Me.menuicon.Size = New System.Drawing.Size(45, 35)
+        Me.menuicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.menuicon.TabIndex = 1
+        Me.menuicon.TabStop = False
+        Me.menuicon.UseTransparentBackground = True
+        '
+        'pnlbuttons
+        '
+        Me.pnlbuttons.Controls.Add(Me.menuicon)
+        Me.pnlbuttons.Controls.Add(Me.Guna2PictureBox1)
+        Me.pnlbuttons.Controls.Add(Me.btnSignOut)
+        Me.pnlbuttons.Controls.Add(Me.btnReport)
+        Me.pnlbuttons.Controls.Add(Me.btnAccount)
+        Me.pnlbuttons.Controls.Add(Me.btnEvent)
+        Me.pnlbuttons.Controls.Add(Me.btnStudent)
+        Me.pnlbuttons.Controls.Add(Me.btnAttendance)
+        Me.pnlbuttons.Controls.Add(Me.lblRole)
+        Me.pnlbuttons.Controls.Add(Me.lblUsername)
+        Me.pnlbuttons.Controls.Add(Me.btnHome)
+        Me.pnlbuttons.Dock = System.Windows.Forms.DockStyle.Left
+        Me.pnlbuttons.FillColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(133, Byte), Integer))
+        Me.pnlbuttons.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(133, Byte), Integer))
+        Me.pnlbuttons.FillColor3 = System.Drawing.Color.Black
+        Me.pnlbuttons.FillColor4 = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(133, Byte), Integer))
+        Me.pnlbuttons.Location = New System.Drawing.Point(0, 0)
+        Me.pnlbuttons.Name = "pnlbuttons"
+        Me.pnlbuttons.Size = New System.Drawing.Size(377, 800)
+        Me.pnlbuttons.TabIndex = 2
         '
         'btnAccount
         '
@@ -262,32 +272,6 @@ Partial Class HomeForm
         Me.btnStudent.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnStudent.TextOffset = New System.Drawing.Point(40, 0)
         '
-        'btnAttendance
-        '
-        Me.btnAttendance.AutoRoundedCorners = True
-        Me.btnAttendance.BackColor = System.Drawing.Color.Transparent
-        Me.btnAttendance.BorderRadius = 21
-        Me.btnAttendance.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnAttendance.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnAttendance.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnAttendance.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnAttendance.FillColor = System.Drawing.Color.Transparent
-        Me.btnAttendance.Font = New System.Drawing.Font("Ubuntu", 10.0!)
-        Me.btnAttendance.ForeColor = System.Drawing.Color.White
-        Me.btnAttendance.HoverState.FillColor = System.Drawing.SystemColors.Control
-        Me.btnAttendance.HoverState.ForeColor = System.Drawing.Color.Black
-        Me.btnAttendance.HoverState.Image = Global.EventProject.My.Resources.Resources.hoveratt
-        Me.btnAttendance.Image = Global.EventProject.My.Resources.Resources.icons_attendance
-        Me.btnAttendance.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnAttendance.ImageSize = New System.Drawing.Size(40, 40)
-        Me.btnAttendance.Location = New System.Drawing.Point(26, 236)
-        Me.btnAttendance.Name = "btnAttendance"
-        Me.btnAttendance.Size = New System.Drawing.Size(281, 45)
-        Me.btnAttendance.TabIndex = 3
-        Me.btnAttendance.Text = "ATTENDANCE"
-        Me.btnAttendance.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnAttendance.TextOffset = New System.Drawing.Point(40, 0)
-        '
         'btnHome
         '
         Me.btnHome.AutoRoundedCorners = True
@@ -314,6 +298,22 @@ Partial Class HomeForm
         Me.btnHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnHome.TextOffset = New System.Drawing.Point(33, 0)
         '
+        'TimerReduce
+        '
+        Me.TimerReduce.Interval = 1
+        '
+        'pnlHome
+        '
+        Me.pnlHome.Dock = System.Windows.Forms.DockStyle.Right
+        Me.pnlHome.Location = New System.Drawing.Point(379, 0)
+        Me.pnlHome.Name = "pnlHome"
+        Me.pnlHome.Size = New System.Drawing.Size(1011, 800)
+        Me.pnlHome.TabIndex = 3
+        '
+        'TimerIncrease
+        '
+        Me.TimerIncrease.Interval = 1
+        '
         'HomeForm
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -326,27 +326,27 @@ Partial Class HomeForm
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "HomeForm"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.menuicon, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlbuttons.ResumeLayout(False)
         Me.pnlbuttons.PerformLayout()
-        CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents pnlbuttons As Guna.UI2.WinForms.Guna2CustomGradientPanel
-    Friend WithEvents Guna2PictureBox1 As Guna.UI2.WinForms.Guna2PictureBox
-    Friend WithEvents btnSignOut As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents lblUsername As Label
+    Friend WithEvents lblRole As Label
+    Friend WithEvents btnAttendance As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnReport As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnSignOut As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Guna2PictureBox1 As Guna.UI2.WinForms.Guna2PictureBox
+    Friend WithEvents menuicon As Guna.UI2.WinForms.Guna2PictureBox
+    Friend WithEvents pnlbuttons As Guna.UI2.WinForms.Guna2CustomGradientPanel
     Friend WithEvents btnAccount As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnEvent As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnStudent As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btnAttendance As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents lblRole As Label
-    Friend WithEvents lblUsername As Label
     Friend WithEvents btnHome As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents pnlHome As Panel
-    Friend WithEvents Guna2PictureBox2 As Guna.UI2.WinForms.Guna2PictureBox
     Friend WithEvents TimerReduce As Timer
+    Friend WithEvents pnlHome As Panel
     Friend WithEvents TimerIncrease As Timer
 End Class

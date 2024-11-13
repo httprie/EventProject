@@ -1,7 +1,7 @@
 ﻿Imports System.Runtime.InteropServices
 Imports Guna.UI2.WinForms
 
-Public Class HomeForm
+Public Class MenuBar
     Inherits Form
     <DllImport("Gdi32.dll", EntryPoint:="CreateRoundRectRgn")> Private Shared Function roundcorner(ByVal leftcorner As Integer, ByVal topcorner As Integer, ByVal rightcorner As Integer,
                                         ByVal bottomcorner As Integer, ByVal widthellipse As Integer, ByVal heightellipse As Integer) As IntPtr
@@ -10,7 +10,7 @@ Public Class HomeForm
     Private userfullName As String
     Private userRole As String
 
-    Private Sub HomeForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub MenuBar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Region = System.Drawing.Region.FromHrgn(roundcorner(0, 0, Width, Height, 20, 20))
         lblUsername.Text = userfullName
         lblRole.Text = userRole
@@ -35,7 +35,6 @@ Public Class HomeForm
         Else
             TimerIncrease.Enabled = True
         End If
-
     End Sub
 
     Private Sub TimerReduce_Tick(sender As Object, e As EventArgs) Handles TimerReduce.Tick
@@ -53,6 +52,19 @@ Public Class HomeForm
         Else
             TimerIncrease.Enabled = False
         End If
+    End Sub
+
+    Private Sub btnEvent_Click(sender As Object, e As EventArgs)
+        Dim clickedButton As Guna2Button = CType(sender, Guna2Button)
+
+        ResetButtonStyles()
+
+        clickedButton.FillColor = SystemColors.Control
+        clickedButton.ForeColor = Color.Black
+        clickedButton.BorderRadius = 20
+        clickedButton.Image = My.Resources.hoverevent
+
+        childform(New EventsForm())
     End Sub
 
     Private Sub ResetButtonStyles()
@@ -87,43 +99,8 @@ Public Class HomeForm
 
     End Sub
 
-    Private Sub HomeForm_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        Dim result As DialogResult
-        result = MessageBox.Show("Do you really want to close the program?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If result = DialogResult.Yes Then
-            End
-        ElseIf result = DialogResult.No Then
-            e.Cancel = True
-        End If
-    End Sub
 
-    Private Sub btnHome_Click(sender As Object, e As EventArgs) Handles btnHome.Click
-        Dim clickedButton As Guna2Button = CType(sender, Guna2Button)
-
-        ResetButtonStyles()
-
-        clickedButton.FillColor = SystemColors.Control
-        clickedButton.ForeColor = Color.Black
-        clickedButton.BorderRadius = 20
-        clickedButton.Image = My.Resources.hoverhome
-
-        childform(New AdminDashboard())
-    End Sub
-
-    Private Sub btnEvent_Click(sender As Object, e As EventArgs) Handles btnEvent.Click
-        Dim clickedButton As Guna2Button = CType(sender, Guna2Button)
-
-        ResetButtonStyles()
-
-        clickedButton.FillColor = SystemColors.Control
-        clickedButton.ForeColor = Color.Black
-        clickedButton.BorderRadius = 20
-        clickedButton.Image = My.Resources.hoverevent
-
-        childform(New EventsForm())
-    End Sub
-
-    Private Sub btnSignOut_Click(sender As Object, e As EventArgs) Handles btnSignOut.Click
+    Private Sub btnSignOut_Click(sender As Object, e As EventArgs)
         Dim clickedButton As Guna2Button = CType(sender, Guna2Button)
 
         ResetButtonStyles()
@@ -143,7 +120,7 @@ Public Class HomeForm
         End If
     End Sub
 
-    Private Sub btnReport_Click(sender As Object, e As EventArgs) Handles btnReport.Click
+    Private Sub btnHome_Click(sender As Object, e As EventArgs)
         Dim clickedButton As Guna2Button = CType(sender, Guna2Button)
 
         ResetButtonStyles()
@@ -151,12 +128,22 @@ Public Class HomeForm
         clickedButton.FillColor = SystemColors.Control
         clickedButton.ForeColor = Color.Black
         clickedButton.BorderRadius = 20
-        clickedButton.Image = My.Resources.hoverreport
+        clickedButton.Image = My.Resources.hoverhome
 
-        childform(New HeadReports())
+        childform(New AdminDashboard())
     End Sub
 
-    Private Sub btnAccount_Click(sender As Object, e As EventArgs) Handles btnAccount.Click
+    Private Sub HomeForm_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Dim result As DialogResult
+        result = MessageBox.Show("Do you really want to close the program?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If result = DialogResult.Yes Then
+            End
+        ElseIf result = DialogResult.No Then
+            e.Cancel = True
+        End If
+    End Sub
+
+    Private Sub btnAttendance_Click(sender As Object, e As EventArgs)
         Dim clickedButton As Guna2Button = CType(sender, Guna2Button)
 
         ResetButtonStyles()
@@ -164,12 +151,12 @@ Public Class HomeForm
         clickedButton.FillColor = SystemColors.Control
         clickedButton.ForeColor = Color.Black
         clickedButton.BorderRadius = 20
-        clickedButton.Image = My.Resources.hoveracc
+        clickedButton.Image = My.Resources.hoveratt
 
-        childform(New AdminAccForm())
+        childform(New AttendanceForm())
     End Sub
 
-    Private Sub btnStudent_Click(sender As Object, e As EventArgs) Handles btnStudent.Click
+    Private Sub btnStudent_Click(sender As Object, e As EventArgs)
         Dim clickedButton As Guna2Button = CType(sender, Guna2Button)
 
         ResetButtonStyles()
@@ -182,7 +169,7 @@ Public Class HomeForm
         childform(New GenerateQR())
     End Sub
 
-    Private Sub btnAttendance_Click(sender As Object, e As EventArgs) Handles btnAttendance.Click
+    Private Sub btnAccount_Click(sender As Object, e As EventArgs)
         Dim clickedButton As Guna2Button = CType(sender, Guna2Button)
 
         ResetButtonStyles()
@@ -190,8 +177,22 @@ Public Class HomeForm
         clickedButton.FillColor = SystemColors.Control
         clickedButton.ForeColor = Color.Black
         clickedButton.BorderRadius = 20
-        clickedButton.Image = My.Resources.hoveratt
+        clickedButton.Image = My.Resources.hoveracc
 
-        childform(New AttendanceForm())
+        childform(New AdminAccForm())
     End Sub
+
+    Private Sub btnReport_Click(sender As Object, e As EventArgs)
+        Dim clickedButton As Guna2Button = CType(sender, Guna2Button)
+
+        ResetButtonStyles()
+
+        clickedButton.FillColor = SystemColors.Control
+        clickedButton.ForeColor = Color.Black
+        clickedButton.BorderRadius = 20
+        clickedButton.Image = My.Resources.hoverreport
+
+        childform(New HeadReports())
+    End Sub
+
 End Class

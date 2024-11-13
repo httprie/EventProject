@@ -151,22 +151,24 @@ WHERE
 
         sqlQuery = "
                     SELECT 
-                    a.FullName,
-                    e.eventname,
-                    a.timein_time,
-                    a.timeout_time,
-                    CASE
-                        WHEN a.timein_time IS NOT NULL AND a.timeout_time IS NOT NULL THEN 'Complete'
-                        WHEN a.timein_time IS NOT NULL AND a.timeout_time IS NULL THEN 'Not Complete'
-                        WHEN a.timein_time IS NOT NULL AND a.timeout_time IS NULL AND a.timeout_time > NOW() THEN 'Ongoing'
-                        ELSE 'No Data'
-                    END AS status
-                FROM 
-                    attendancelog a
-                JOIN 
-                    events e ON a.eventid = e.eventid
-                WHERE 
-                    e.eventname = @EventName"
+                        a.FullName,
+                        e.eventname,
+                        a.timein_time,
+                        a.timeout_time,
+                        e.created_by,  
+                        CASE
+                            WHEN a.timein_time IS NOT NULL AND a.timeout_time IS NOT NULL THEN 'Complete'
+                            WHEN a.timein_time IS NOT NULL AND a.timeout_time IS NULL THEN 'Not Complete'
+                            WHEN a.timein_time IS NOT NULL AND a.timeout_time IS NULL AND a.timeout_time > NOW() THEN 'Ongoing'
+                            ELSE 'No Data'
+                        END AS status
+                    FROM 
+                        attendancelog a
+                    JOIN 
+                        events e ON a.eventid = e.eventid
+                    WHERE 
+                        e.eventname = @EventName"
+
 
         cmd = New MySqlCommand(sqlQuery, conn)
         cmd.Parameters.AddWithValue("@EventName", selectedEventName)
@@ -190,7 +192,10 @@ WHERE
         ReportData.Columns(1).HeaderText = "Event Name"
         ReportData.Columns(2).HeaderText = "Time In"
         ReportData.Columns(3).HeaderText = "Time Out"
-        ReportData.Columns(4).HeaderText = "Status"
+        ReportData.Columns(4).HeaderText = "Created By" '
+        ReportData.Columns(5).HeaderText = "Status"
+
+
 
         ReportData.AutoResizeColumns()
     End Sub
